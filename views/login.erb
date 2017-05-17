@@ -1,9 +1,27 @@
-<form action="/login" method="post">
-
-  <label for="username">Your username:</label>
-  <input type="text" name="username">
-  <label for="password">Your password:</label>
-  <input type="text" name="password">
-
-  <button type="submit">Log in</button>
-</form>
+<div class="site-wrapper login">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+        <h1 class="cover-heading">login.</h1>
+          <div class="row">
+            <form class="col s12" action="/login" method="post" >
+              <div class="input-field col s6">
+                <input name="username" id="username" type="text" class="validate">
+                <label for="username">Name</label>
+              </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="password" id="password" type="text" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-md btn-secondary lead">login</button>
+          <br>
+          <a href="/"><button type="button" class="btn btn-md btn-secondary lead">create account</button></a>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

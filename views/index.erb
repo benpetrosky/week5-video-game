@@ -1,17 +1,26 @@
-<h1>CREATE YOUR LOG IN</h1>
-
-<form action="/profile" method="post">
-
-  <label for="username">Create username:</label>
-  <input type="text" name="username">
-
-  <label for="password">Create password:</label>
-  <input type="text" name="password">
-
-  <button type="submit">Create Account</button>
-</form>
-
-<hr>
-
-<h2>Log in page</h2>
-<a href="/login">Log in page</a>
+<div class="site-wrapper login">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+        <h1 class="cover-heading">create login.</h1>
+        <form class="col s12" action="/profile" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="username" id="username" type="text" class="validate">
+              <label for="username">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="password" id="password" type="text" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-md btn-secondary lead">make account</button>
+          <a href="/login"><button type="button" class="btn btn-md btn-secondary lead">login</button></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
