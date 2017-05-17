@@ -6,6 +6,7 @@ also_reload('lib/**/*.rb')
 require('./lib/profile')
 require('./lib/videogame')
 require('./lib/opinion')
+
 require('pry')
 require("pg")
 
@@ -20,6 +21,13 @@ get("/profile") do
     @description = @user_profile.description()
   erb(:profile)
 end
+get("/friends_list/:id") do
+  id = params.fetch("id").to_i
+  @user = Profile.find(id)
+  @list = @user.profiles().first().username()
+
+  erb(:friends_list)
+end
 
 get("/all_users/:id") do
   id = params.fetch("id").to_i
@@ -28,12 +36,25 @@ get("/all_users/:id") do
   @description = @user_profile.description()
   erb(:all_users)
 end
-get("/profile/:profile_id/user_profile/:user_profile_id()") do
-    binding.pry
+get("/profile/:profile_id/user_profile/:user_profile_id") do
+
   friend_id = params.fetch("profile_id").to_i
   user_id = params.fetch("user_profile_id").to_i
-
+  @user_id = Profile.find(user_id)
   @profile = Profile.find(friend_id)
+  erb(:profile)
+end
+post("/add_friend") do
+  friend_id = params.fetch("profile_id").to_i
+  user_id = params.fetch("user_id").to_i
+  @user = Profile.find(user_id)
+  @friend = Profile.find(friend_id)
+
+  @user.profiles.push(@friend)
+
+   @list = @user.profiles().first().username()
+  @profile = @user
+  @user_id = @profile
   erb(:profile)
 end
 # get('/profile/:profile_id/videogames/:videogame_id')do
@@ -52,7 +73,7 @@ end
 post("/profile") do
   username = params.fetch("username")
   password = params.fetch("password")
-  Friend.create(:username => username)
+
   Profile.create(:username => username, :password => password)
   erb(:success)
 end
@@ -64,6 +85,7 @@ post('/login') do
 
   if @profile != nil
     @profile = Profile.find_by(:username => username, :password => password)
+    @user_id = @profile
     erb(:profile)
   else
     erb(:error)

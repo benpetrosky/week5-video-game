@@ -2,7 +2,6 @@
   <% @profiles.each() do |profile| %>
     <li><a href="/profile/<%= profile.id()%>/user_profile/<%= @user_profile.id()%>"><%= profile.username()%></a></li>
     <%end%>
-
 </ul>
 
 <a href="/profile/<%= @user_profile.id()%>">Back to your profile</a>
