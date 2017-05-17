@@ -15,6 +15,18 @@
 <button>
 <a href="/all_users/<%=@profile.id()%>">Search for Friends</a>
 </button>
+<button>
+<a href="/friends_list/<%=@profile.id()%>">View your Friends</a>
+</button>
+
+<form action="/add_friend" method="post">
+  <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
+  <input type="hidden" name="user_id" value="<%= @user_id.id()%>">
+
+  <button type="submit">Add Friend</button>
+</form>
+
+
 
 <ul>
   <% @profile.opinions.each() do |opinion| %>
