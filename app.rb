@@ -24,7 +24,7 @@ get("/friends_list/:id") do
   id = params.fetch("id").to_i
   @user = Profile.find(id)
   @list = @user.profiles().first().username()
-
+  @profile = @user
   erb(:friends_list)
 end
 
@@ -39,7 +39,7 @@ get("/profile/:profile_id/user/:user_id") do
   user_id = params.fetch("user_id").to_i
   @user_id = Profile.find(user_id)
   @profile = Profile.find(friend_id)
-
+  @user = @user_id
   erb(:profile)
 end
 get("/profile/:profile_id/user_profile/:user_profile_id") do
@@ -48,6 +48,7 @@ get("/profile/:profile_id/user_profile/:user_profile_id") do
   user_id = params.fetch("user_profile_id").to_i
   @user_id = Profile.find(user_id)
   @profile = Profile.find(friend_id)
+  @user = @user_id
   erb(:profile)
 end
 post("/add_friend") do
@@ -116,11 +117,14 @@ get('/profile/:id') do
   @profile = Profile.find(id)
   opinion = @profile.opinions()
 
+
     @profile.opinions.each() do |opinion|
       name=Videogame.find(opinion.videogame_id().to_i).game_name()
       opinion = opinion.post
 
   end
+  @user_id = @profile
+  @user = @profile
   erb(:profile)
 end
 
@@ -143,5 +147,6 @@ post("/opinion/post/:profile_id/:videogame_id") do
   @opinion = Opinion.create(:profile_id => profile_id, :videogame_id => videogame_id, :post => post, :tag => nil)
   @profile = Profile.find(profile_id)
   @username = @profile.username()
+  @user_id = @profile
   erb(:profile)
 end
