@@ -4,7 +4,7 @@
 
 
 <button>
-<a href="/add_videogame/<%=@profile.id()%>">Click here to add a videogame to the database </a>
+<a href="/add_videogame/<%=@profile.id()%>/user/<%=@user.id()%>">Click here to add a videogame to the database </a>
 </button>
 
 
@@ -13,11 +13,11 @@
 </button>
 
 <button>
-<a href="/all_users/<%=@profile.id()%>">Search for Friends</a>
+<a href="/all_users/<%=@profile.id()%>/user/<%=@user.id()%>">Search for Friends</a>
 </button>
 
 <button>
-<a href="/friends_list/<%=@profile.id()%>">View your Friends</a>
+<a href="/friends_list/<%=@profile.id()%>/user/<%=@user.id()%>">View your Friends</a>
 </button>
 
 <button>

@@ -20,17 +20,17 @@ end
 get("/profile") do
   erb(:profile)
 end
-get("/friends_list/:id") do
-  id = params.fetch("id").to_i
-  @user = Profile.find(id)
+get("/friends_list/:profile_id/user/:user_id") do
+  user_id = params.fetch("user_id").to_i
+  @user = Profile.find(user_id)
   @list = @user.profiles().first().username()
   @profile = @user
   erb(:friends_list)
 end
 
-get("/all_users/:id") do
-  id = params.fetch("id").to_i
-  @user_profile = Profile.find(id)
+get("/all_users/:profile_id/user/:user_id") do
+  user_id = params.fetch("user_id").to_i
+  @user_profile = Profile.find(user_id)
   @profiles = Profile.all()
   erb(:all_users)
 end
@@ -91,9 +91,9 @@ post('/login') do
   end
 end
 
-get("/add_videogame/:id") do
-  id = params.fetch("id").to_i
-  @profile = Profile.find(id)
+get("/add_videogame/:profile_id/user/:user_id") do
+  user_id = params.fetch("user_id").to_i
+  @profile = Profile.find(user_id)
   erb(:add_videogame_form)
 end
 
