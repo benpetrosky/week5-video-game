@@ -1,5 +1,10 @@
 <h1>Here are all of <%=@user.username()%> friends.</h1>
 
-<h2>
-<%= @list  %>
-</h2>
+
+
+<ul>
+  <%@user.profiles().each do |profile|%>
+  <li><%= profile.username()%></li>
+
+  <%end%>
+</ul>

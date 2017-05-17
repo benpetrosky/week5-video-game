@@ -24,6 +24,7 @@ get("/friends_list/:id") do
   id = params.fetch("id").to_i
   @user = Profile.find(id)
   @list = @user.profiles().first().username()
+
   erb(:friends_list)
 end
 
@@ -46,7 +47,9 @@ post("/add_friend") do
   user_id = params.fetch("user_id").to_i
   @user = Profile.find(user_id)
   @friend = Profile.find(friend_id)
-   @user.profiles = [@friend]
+
+  @user.profiles.push(@friend)
+
    @list = @user.profiles().first().username()
   @profile = @user
   @user_id = @profile
