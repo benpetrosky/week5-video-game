@@ -15,3 +15,7 @@
    <li><%=Profile.find(opinion.profile_id().to_i).username()%> <%= opinion.post()%></li>
    <%end%>
 </ul>
+
+<button>
+<a href="/profile/<%= @profile.id()%>">Back to Your Profile</a>
+</button>

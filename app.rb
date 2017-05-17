@@ -84,6 +84,7 @@ post('/login') do
   if @profile != nil
     @profile = Profile.find_by(:username => username, :password => password)
     @user_id = @profile
+    @user = @profile
     erb(:profile)
   else
     erb(:error)
@@ -106,10 +107,11 @@ post("/add_videogame/:id") do
   erb(:videogame_list)
 end
 
-get('/videogame_list/:id') do
+get('/videogame_list/:profile_id/user/:user_id') do
   @videogames = Videogame.all()
-  id = params.fetch("id").to_i
-  @profile = Profile.find(id)
+  user_id = params.fetch("user_id").to_i
+  @profile = Profile.find(user_id)
+
   erb(:videogame_list)
 end
 get('/profile/:id') do
@@ -148,5 +150,6 @@ post("/opinion/post/:profile_id/:videogame_id") do
   @profile = Profile.find(profile_id)
   @username = @profile.username()
   @user_id = @profile
+  @user = @profile
   erb(:profile)
 end
