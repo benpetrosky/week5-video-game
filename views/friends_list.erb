@@ -4,7 +4,7 @@
 
 <ul>
   <%@user.profiles().each do |profile|%>
-  <li><%= profile.username()%></li>
+  <li><a href="/profile/<%= profile.id()%>/user/<%= @user.id()%>"><%= profile.username()%></a></li>
 
   <%end%>
 </ul>

@@ -34,6 +34,14 @@ get("/all_users/:id") do
   @profiles = Profile.all()
   erb(:all_users)
 end
+get("/profile/:profile_id/user/:user_id") do
+  friend_id = params.fetch("profile_id").to_i
+  user_id = params.fetch("user_id").to_i
+  @user_id = Profile.find(user_id)
+  @profile = Profile.find(friend_id)
+
+  erb(:profile)
+end
 get("/profile/:profile_id/user_profile/:user_profile_id") do
 
   friend_id = params.fetch("profile_id").to_i
@@ -55,16 +63,7 @@ post("/add_friend") do
   @user_id = @profile
   erb(:profile)
 end
-# get('/profile/:profile_id/videogames/:videogame_id')do
-#   profile_id = params.fetch("profile_id").to_i
-#   videogame_id = params.fetch("videogame_id").to_i
-#   @videogame = Videogame.find(videogame_id)
-#   @profile = Profile.find(profile_id)
-#
-#   @opinions = Opinion.find_by(:videogame_id => videogame_id)
-#
-#   erb(:videogame)
-# end
+
 
 
 
