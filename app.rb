@@ -18,6 +18,7 @@ get('/login') do
   erb(:login)
 end
 get("/profile") do
+    @description = @user_profile.description()
   erb(:profile)
 end
 get("/friends_list/:profile_id/user/:user_id") do
@@ -32,8 +33,10 @@ get("/all_users/:profile_id/user/:user_id") do
   user_id = params.fetch("user_id").to_i
   @user_profile = Profile.find(user_id)
   @profiles = Profile.all()
+  @description = @user_profile.description()
   erb(:all_users)
 end
+
 get("/profile/:profile_id/user/:user_id") do
   friend_id = params.fetch("profile_id").to_i
   user_id = params.fetch("user_id").to_i
@@ -64,9 +67,6 @@ post("/add_friend") do
   @user_id = @profile
   erb(:profile)
 end
-
-
-
 
 post("/profile") do
   username = params.fetch("username")

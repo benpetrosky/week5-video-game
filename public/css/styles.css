@@ -1,0 +1,47 @@
+.login{
+  background-image: url("http://i.imgur.com/eXGzhUn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%
+}
+
+input{
+  color:white;
+  background: none;
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 30px
+}
+
+.loginButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline: none;
+  border: 2px dotted gray;
+  width: 250px;
+  color: gray;
+  margin: 20px;
+  font-weight: bold;
+
+}
+.loginButton:hover {
+  color: white;
+  background: gray;
+  border: 2px solid gray;
+  /*Here can be more styling*/
+}
+
+#profileImage{
+  width:10%;
+
+  border: 4px solid white;
+  border-radius: 20px;
+}
+
+.card-header{
+  background-image:url("http://www.f-covers.com/cover/minecraft-video-game-games-gaming-pattern-patterns-facebook-cover-timeline-banner-for-fb.jpg");
+
+}
