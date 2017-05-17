@@ -1,4 +1,4 @@
-<h2><%= @profile.username() %></h2>
+<!-- <h2><%= @profile.username() %></h2>
 
 
 <button>
@@ -6,69 +6,104 @@
 </button>
 
 
-<button>
-<a href="/videogame_list/<%=@profile.id()%>">Checkout all the videogames people are talking about.</a>
-</button>
-
-<button>
-<a href="/all_users/<%=@profile.id()%>">Search for Friends</a>
-</button>
-
 <ul>
   <% @profile.opinions.each() do |opinion| %>
    <li> <%=Videogame.find(opinion.videogame_id().to_i).game_name()%> <%=opinion.post%></li>
    <%end%>
-</ul>
+</ul> -->
 
 
 
 
-<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Brand</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">OpinionatedGamer</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Help</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/profile/<%= @profile.id()%>">Profile<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Game Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>">Opinions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/all_users/<%=@profile.id()%>">Add Friends</a>
+          </li>
+        </ul>
+
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Edit Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+
+<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">My Profile</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3"><%= @profile.username() %></h1>
+        <p class="lead">write a description for yourself!
+        <p><img id="profileImage" src="https://yt3.ggpht.com/-lx6v0vU1KkE/AAAAAAAAAAI/AAAAAAAAAAA/9T7kweNLWQg/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="avatar image" /></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-10">
+          <h4>Recent Activity</h4>
+
+
+          <ul>
+            <% @profile.opinions.each() do |opinion| %>
+             <li> <%=Videogame.find(opinion.videogame_id().to_i).game_name()%> <%=opinion.post%></li>
+             <%end%>
+          </ul>
+
+
+        </div>
+      </div>
+    </div> <!-- /container -->

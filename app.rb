@@ -17,6 +17,7 @@ get('/login') do
   erb(:login)
 end
 get("/profile") do
+    @description = @user_profile.description()
   erb(:profile)
 end
 
@@ -24,6 +25,7 @@ get("/all_users/:id") do
   id = params.fetch("id").to_i
   @user_profile = Profile.find(id)
   @profiles = Profile.all()
+  @description = @user_profile.description()
   erb(:all_users)
 end
 get("/profile/:profile_id/user_profile/:user_profile_id()") do
