@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170517182536) do
-=======
-ActiveRecord::Schema.define(version: 20170517173159) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friends_lists", force: :cascade do |t|
+    t.integer "friend_id"
+    t.integer "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "opinions", force: :cascade do |t|
     t.integer "profile_id"

@@ -34,7 +34,7 @@ body {
 /* Customize container */
 @media (min-width: 48em) {
   .container {
-    max-width: 46rem;
+    max-width: 200rem;
   }
 }
 .container-narrow > hr {
@@ -45,10 +45,8 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: .05rem solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
+  width:100%
+
 }
 
 /* Supporting marketing content */
@@ -75,5 +73,8 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+  #profiletron{
+      background-image: url("http://fc02.deviantart.net/fs71/i/2010/108/4/5/Kingdom_Hearts_Pattern_by_bebenciukas.jpg");
   }
 }

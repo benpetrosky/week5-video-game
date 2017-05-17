@@ -6,19 +6,13 @@
 </button>
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> master
-<ul>
-  <% @profile.opinions.each() do |opinion| %>
-   <li> <%=Videogame.find(opinion.videogame_id().to_i).game_name()%> <%=opinion.post%></li>
-   <%end%>
-</ul> -->
+>>>>>>> c749d403d15be2edaf2b7c0c5553560701a57063
+ -->
 
 
 
@@ -55,19 +49,19 @@
             <a class="nav-link active" href="/profile/<%= @profile.id()%>">Profile<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Game Library</a>
+            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>">Game Library</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>">Opinions</a>
+            <a class="nav-link" href="/add_videogame/<%=@profile.id()%>">Add Videogame</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/all_users/<%=@profile.id()%>">Add Friends</a>
+            <a class="nav-link" href="/all_users/<%=@profile.id()%>">Follow Users</a>
           </li>
         </ul>
 
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="/friends_list/<%=@profile.id()%>">Friends List</a>
+            <a class="nav-link" href="/friends_list/<%=@profile.id()%>">Following</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">Logout</a>
@@ -94,7 +88,7 @@
         <h3 class="text-muted">My Profile</h3>
       </div>
 
-      <div class="jumbotron">
+      <div class="jumbotron" id="profiletron">
         <h1 class="display-3"><%= @profile.username() %></h1>
         <p class="lead">write a description for yourself!
         <p><img id="profileImage" src="https://yt3.ggpht.com/-lx6v0vU1KkE/AAAAAAAAAAI/AAAAAAAAAAA/9T7kweNLWQg/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="avatar image" /></p>
@@ -107,12 +101,21 @@
             <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
             <input type="hidden" name="user_id" value="<%= @user_id.id()%>">
 
-            <button type="submit">Add User As Friend</button>
+            <button type="submit">Follow User</button>
           </form>
 
           <ul>
             <% @profile.opinions.each() do |opinion| %>
-             <li> <%=Videogame.find(opinion.videogame_id().to_i).game_name()%> <%=opinion.post%></li>
+
+
+            <br>
+            <div class="card">
+              <h3 class="card-header"><%=Videogame.find(opinion.videogame_id().to_i).game_name()%></h3>
+              <div class="card-block">
+                <p class="card-text">"<%=opinion.post%>"</p>
+              </div>
+            </div>
+            <br>
              <%end%>
           </ul>
 
