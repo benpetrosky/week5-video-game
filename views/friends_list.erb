@@ -1,12 +1,68 @@
-<h1>Here are all of <%=@user.username()%> friends.</h1>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">OpinionatedGamer</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-md-1 hidden-xs-down bg-faded sidebar">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/profile/<%= @user.id()%>">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>/user/<%=@user.id()%>">Game Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add_videogame/<%=@profile.id()%>/user/<%=@user.id()%>">Add Videogame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/all_users/<%=@profile.id()%>/user/<%=@user.id()%>">Follow Users</a>
+          </li>
+        </ul>
+
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/friends_list/<%=@profile.id()%>/user/<%=@user.id()%>">Following<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+        </ul>
+      </nav>
 
 
 
-<ul>
+
+
+
+
+<div class="container">
+
+<h1><%=@user.username()%>'s friends</h1>
+
   <%@user.profiles().each do |profile|%>
-  <li><a href="/profile/<%= profile.id()%>/user/<%= @user.id()%>"><%= profile.username()%></a></li>
+
+  <div class="card cardbg2">
+    <div class="card-block">
+      <h4 class="card-title"><img class="boo" src="https://s-media-cache-ak0.pinimg.com/originals/06/b7/d9/06b7d9092fe2b9cf21d70fd670a3f68b.png" alt="sackboy" /></h4>
+      <h6 class="card-subtitle mb-2 "><%= profile.username()%></h6>
+      <a href="/profile/<%= profile.id()%>/user/<%= @user.id()%>" class="card-link profilelist2">See Profile</a>
+    </div>
+  </div>
+
 
   <%end%>
-</ul>
 
-<a href="/profile/<%= @profile.id()%>/">Back to your profile</a>
+</div>

@@ -1,21 +1,60 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">OpinionatedGamer</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-md-1 hidden-xs-down bg-faded sidebar">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/profile/<%= @user.id()%>">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>/user/<%=@user.id()%>">Game Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/add_videogame/<%=@profile.id()%>/user/<%=@user.id()%>">Add Videogame<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/all_users/<%=@profile.id()%>/user/<%=@user.id()%>">Follow Users</a>
+          </li>
+        </ul>
+
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/friends_list/<%=@profile.id()%>/user/<%=@user.id()%>">Following</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
 
 
-<a href="/profile/<%= @profile.id()%>">Back to your profile</a>
-
-<div class="site-wrapper login">
+<div class="site-wrapper videoblur">
   <div class="site-wrapper-inner">
     <div class="cover-container">
       <div class="inner cover">
-        <h1 class="create">login.</h1>
           <div class="row">
             <form action="/add_videogame/<%=@profile.id()%>" method="post">
-              <label for="game_name">Enter in The name of the videogame</label>
-              <input type="text" name="game_name">
-              <button type="submit">Add game to database</button>
+              <input type="text" class ="scifiinput" name="game_name" placeholder="Game Name">
+              <button class="scifibutton btn" type="submit">Add game to database</button>
             </form>
       </div>
-      <a href="/profile/<%= @profile.id()%>">Back to your profile</a>
     </div>
   </div>
 </div>

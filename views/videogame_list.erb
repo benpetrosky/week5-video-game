@@ -1,5 +1,5 @@
 
-<!-- <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,6 +11,11 @@
           <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
         </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0" action="/game_search" method="post">
+          <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
+          <input class="form-control mr-sm-2" name = "game_name" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
   </nav>
 
@@ -19,10 +24,10 @@
       <nav class="col-sm-3 col-md-1 hidden-xs-down bg-faded sidebar">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="/profile/<%= @user.id()%>">Profile<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/profile/<%= @user.id()%>">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>/user/<%=@user.id()%>">Game Library</a>
+            <a class="nav-link active" href="/videogame_list/<%=@profile.id()%>/user/<%=@user.id()%>">Game Library<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/add_videogame/<%=@profile.id()%>/user/<%=@user.id()%>">Add Videogame</a>
@@ -41,10 +46,9 @@
           </li>
         </ul>
       </nav>
+    </div>
+  </div>
 
-
-
- -->
 
 
 <% if @videogames.any?() %>

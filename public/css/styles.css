@@ -2,7 +2,14 @@
   background-image: url("http://i.imgur.com/eXGzhUn.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%
+  width: 100%
+}
+
+.videoblur{
+  background-image: url("http://unrealitymag.com/wp-content/uploads/2011/12/video-game-wallpaper13.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%
 }
 
 input{
@@ -33,7 +40,6 @@ input{
   font-weight: bold;
   background: none;
   border: 2px solid #003300;
-  /*Here can be more styling*/
 }
 
 #profileImage{
@@ -66,7 +72,32 @@ textarea, input, button { outline: none; }
 }
 .create:hover{
     text-decoration: none;
+}
 
+.scifiinput{
+  background-color: none;
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+    border:none;
+    color:gray;
+    font-size: 5em;
+
+}
+.scifiinput:hover{
+
+  background-color: none;
+text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+color:gray;
+font-size: 5em;
+}
+.scifibutton{
+  background:none;
+  border:none;
+  color:gray;
+  font-size: 2em;
+}
+.scifibutton:hover{
+  text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+  font-size: 2em;
 }
 
 .labels{
@@ -77,6 +108,58 @@ color:#003300;
   width: 400px
 }
 
+.profilelist{
+  color:black;
+  border: 1px solid black;
+  padding: 5px;
+}
+.profilelist:hover{
+  color:black;
+  border: 1px dashed black;
+}
+
+.cardbg{
+  background-image: url("http://img00.deviantart.net/456c/i/2012/077/4/e/cardboard_texture_01_by_carlbert-d4t6pw9.jpg");
+  background-position: right;
+}
+.boo{
+  width: 70px;
+}
+.cardbg2{
+  background-image: url("http://i1152.photobucket.com/albums/p486/bossedit8/screen1_zps933bc48a.png");
+  background-position: right;
+}
+.profilelist2{
+  color:white;
+  border: 1px solid white;
+  padding: 5px;
+}
+.profilelist2:hover{
+  color:white;
+  border: 1px dashed white;
+}
+
+.textjourney{
+  background-color:lightblue;
+}
+
+.commentscene{
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/26/61/be/2661be2ac5c0c589020c6ddf5cbc2c78.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+.journey-title{
+  font-size: 10rem
+  font-family: fantasy;
+}
+.bubble{
+  width:15px;
+  float:left;
+}
+.nobg{
+  background-color: lightblue;
+}
 body{
   text-decoration: none;
 }

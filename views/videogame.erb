@@ -1,21 +1,49 @@
-<h1>
-<%= @videogame.game_name() %>
-</h1>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">OpinionatedGamer</a>
 
-<form action="/opinion/post/<%= @profile.id()%>/<%= @videogame.id()%>" method="post">
-  <label for="post">What are your thoughts on this game?</label>
-  <textarea class="form-control" name="post" rows="3"></textarea>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <button type="submit">Post</button>
+      <div class="site-wrapper commentscene">
+        <div class="site-wrapper-inner">
+          <div class="cover-container">
+            <div class="inner cover">
+              <h1 class="jouney-title"><%= @videogame.game_name() %></h1>
 
-</form>
+                  <form action="/opinion/post/<%= @profile.id()%>/<%= @videogame.id()%>" method="post">
+                    <label for="post">What are your thoughts on this game?</label>
+                    <textarea class="form-control textjouney" name="post" rows="3"></textarea>
+                    <br>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">Post</button>
 
-<ul>
-  <% @videogame.opinions.each() do |opinion| %>
-   <li><%=Profile.find(opinion.profile_id().to_i).username()%> <%= opinion.post()%></li>
-   <%end%>
-</ul>
+                  </form>
+                  <br>
+                  <hr>
+                  <br>
 
-<button>
-<a href="/profile/<%= @profile.id()%>">Back to Your Profile</a>
-</button>
+                    <% @videogame.opinions.each() do |opinion| %>
+
+                    <div class="card nobg">
+                      <div class="card-block nobg">
+                        <img class="bubble" src="https://img.clipartfest.com/e90b5f6e8aaba261c485152ac633e263_speech-bubble-free-stock-cartoon-speech-bubble-clipart_958-958.png" alt="" />"<%= opinion.post()%>"
+                        <br>
+                        -<%=Profile.find(opinion.profile_id().to_i).username()%>
+                      </div>
+                    </div>
+
+                     <%end%>
+
+
+          </div>
+        </div>
+      </div>
+    </div>

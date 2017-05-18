@@ -35,7 +35,45 @@ get("/all_users/:profile_id/user/:user_id") do
   @user_profile = Profile.find(user_id)
   @profiles = Profile.all()
   @description = @user_profile.description()
+  @profile = Profile.find(user_id)
+  @user = @profile
   erb(:all_users)
+end
+post("/user_search") do
+  username = params.fetch("username")
+  if Profile.find_by(:username => username)
+    @profile = Profile.find_by(:username => username)
+    user_id = params.fetch("user_id").to_i
+    @user_id = Profile.find(user_id)
+    @user = @user_id
+    erb(:profile)
+  else
+    user_id = params.fetch("user_id").to_i
+    @user_profile = Profile.find(user_id)
+    @profiles = Profile.all()
+    @description = @user_profile.description()
+    @profile = Profile.find(user_id)
+    @user = @profile
+    erb(:all_users)
+  end
+end
+post("/game_search") do
+  game_name = params.fetch("game_name")
+  if Videogame.find_by(:game_name => game_name)
+    @videogame = Videogame.find_by(:game_name => game_name)
+    profile_id = params.fetch("profile_id").to_i
+    videogame_id = @videogame.id().to_i
+    @profile = Profile.find(profile_id)
+    @opinions = Opinion.find_by(:videogame => videogame_id)
+    @user = profile
+    erb(:videogame)
+  else
+    @videogames = Videogame.all()
+    user_id = params.fetch("profile_id").to_i
+    @profile = Profile.find(user_id)
+    @user = @profile
+    erb(:videogame_list)
+  end
 end
 
 get("/profile/:profile_id/user/:user_id") do
@@ -95,6 +133,7 @@ end
 get("/add_videogame/:profile_id/user/:user_id") do
   user_id = params.fetch("user_id").to_i
   @profile = Profile.find(user_id)
+  @user = @profile
   erb(:add_videogame_form)
 end
 
@@ -104,6 +143,7 @@ post("/add_videogame/:id") do
   id = params.fetch("id").to_i
   @profile = Profile.find(id)
   @videogames = Videogame.all()
+  @user = @profile
 
   erb(:videogame_list)
 end
@@ -112,7 +152,7 @@ get('/videogame_list/:profile_id/user/:user_id') do
   @videogames = Videogame.all()
   user_id = params.fetch("user_id").to_i
   @profile = Profile.find(user_id)
-
+  @user = @profile
   erb(:videogame_list)
 end
 get('/profile/:id') do
@@ -136,7 +176,7 @@ get('/profile/:profile_id/videogames/:videogame_id')do
   videogame_id = params.fetch("videogame_id").to_i
   @videogame = Videogame.find(videogame_id)
   @profile = Profile.find(profile_id)
-
+  @user = @profile
   @opinions = Opinion.find_by(:videogame_id => videogame_id)
 
   erb(:videogame)
