@@ -6,7 +6,7 @@ also_reload('lib/**/*.rb')
 require('./lib/profile')
 require('./lib/videogame')
 require('./lib/opinion')
-require('bcrypt')
+require('encrypted_strings')
 
 require('pry')
 require("pg")
@@ -111,7 +111,10 @@ post("/profile") do
   username = params.fetch("username")
   password = params.fetch("password")
 
-  Profile.create(:username => username, :password => password)
+  encrypted_password = password.encrypt
+  encrypted_password.cipher
+
+  Profile.create(:username => username, :password => encrypted_password)
   erb(:success)
 end
 
