@@ -6,6 +6,7 @@ also_reload('lib/**/*.rb')
 require('./lib/profile')
 require('./lib/videogame')
 require('./lib/opinion')
+require('bcrypt')
 
 require('pry')
 require("pg")
