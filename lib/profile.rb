@@ -7,7 +7,7 @@ class Profile < ActiveRecord::Base
   has_many :opinions
   has_many :videogames, through: :opinions
 
-  validates :username, uniqueness: { case_sensitive: true }
+  validates :username, uniqueness: { case_sensitive: false }
   validates(:username, {:presence => true, :length => { :maximum => 100 }})
 
 end

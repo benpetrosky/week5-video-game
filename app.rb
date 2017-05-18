@@ -65,7 +65,7 @@ post("/game_search") do
     videogame_id = @videogame.id().to_i
     @profile = Profile.find(profile_id)
     @opinions = Opinion.find_by(:videogame => videogame_id)
-    @user = profile
+    @user = @profile
     erb(:videogame)
   else
     @videogames = Videogame.all()
@@ -112,9 +112,9 @@ post("/profile") do
   password = params.fetch("password")
 
   encrypted_password = password.encrypt
-  encrypted_password.cipher
+  password == encrypted_password.cipher
 
-  Profile.create(:username => username, :password => encrypted_password)
+  Profile.create(:username => username, :password => password)
   erb(:success)
 end
 

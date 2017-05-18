@@ -157,6 +157,9 @@ color:#003300;
   width:15px;
   float:left;
 }
+#fr{
+  float:right;
+}
 .nobg{
   background-color: lightblue;
 }
