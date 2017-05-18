@@ -15,6 +15,6 @@ describe('login', {:type => :feature}) do
     fill_in("username", :with => 'bigben')
     fill_in("password", :with => '12345')
     click_button('make account')
-    expect(page).to have_content('YOUR PROFILE HAS BEEN SAVED IN THE DATABASE')
+    expect(page).to have_content('your profile has been saved.')
   end
 end
