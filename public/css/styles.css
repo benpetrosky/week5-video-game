@@ -60,7 +60,7 @@ textarea, input, button { outline: none; }
 
 .posts{
   width:100%;
-  margin-left: 200px;
+  margin-left: 60px;
 }
 
 .create{
@@ -72,6 +72,10 @@ textarea, input, button { outline: none; }
 }
 .create:hover{
     text-decoration: none;
+}
+
+.cardtext{
+  color:black;
 }
 
 .scifiinput{
@@ -142,6 +146,7 @@ color:#003300;
 .textjourney{
   background-color:lightblue;
 }
+
 
 .commentscene{
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/26/61/be/2661be2ac5c0c589020c6ddf5cbc2c78.jpg");

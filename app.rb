@@ -25,7 +25,7 @@ end
 get("/friends_list/:profile_id/user/:user_id") do
   user_id = params.fetch("user_id").to_i
   @user = Profile.find(user_id)
-  @list = @user.profiles().first().username()
+
   @profile = @user
   erb(:friends_list)
 end

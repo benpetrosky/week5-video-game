@@ -49,7 +49,7 @@
           <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
           <input type="hidden" name="user_id" value="<%= @user_id.id()%>">
 
-          <button class="active" type="submit">Follow User</button>
+          <button class="active btn" type="submit">Follow User</button>
         </form>
       </div>
 <div class="container">
@@ -67,7 +67,7 @@
             <div class="card posts">
               <h3 class="card-header"><%=Videogame.find(opinion.videogame_id().to_i).game_name()%></h3>
               <div class="card-block">
-                <p class="card-text">"<%=opinion.post%>"</p>
+                <p class="card-text cardtext">"<%=opinion.post%>"</p>
               </div>
             </div>
             <br>
