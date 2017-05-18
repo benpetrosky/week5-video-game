@@ -38,7 +38,6 @@ input{
 
 #profileImage{
   width:10%;
-
   border: 4px solid white;
   border-radius: 20px;
 }
@@ -72,4 +71,12 @@ textarea, input, button { outline: none; }
 
 .labels{
 color:#003300;
+}
+
+.libraryimg{
+  width: 400px
+}
+
+body{
+  text-decoration: none;
 }

@@ -1,15 +1,64 @@
 
+<!-- <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">OpinionatedGamer</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-md-1 hidden-xs-down bg-faded sidebar">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/profile/<%= @user.id()%>">Profile<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/videogame_list/<%=@profile.id()%>/user/<%=@user.id()%>">Game Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add_videogame/<%=@profile.id()%>/user/<%=@user.id()%>">Add Videogame</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/all_users/<%=@profile.id()%>/user/<%=@user.id()%>">Follow Users</a>
+          </li>
+        </ul>
+
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/friends_list/<%=@profile.id()%>/user/<%=@user.id()%>">Following</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Logout</a>
+          </li>
+        </ul>
+      </nav>
 
 
 
-
-
+ -->
 
 
 <% if @videogames.any?() %>
     <ul>
     <% @videogames.each() do |videogame| %>
-      <li><a href="/profile/<%= @profile.id()%>/videogames/<%= videogame.id() %>"><%= videogame.game_name()%></a></li>
+
+    <div class="card librarycard" style="width: 25rem; margin:3rem; display:inline-block;">
+      <img class="card-img-top libraryimg" src="http://i2.kym-cdn.com/photos/images/original/000/081/680/Katamari_meme.jpg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title"><%= videogame.game_name()%></h4>
+        <a href="/profile/<%= @profile.id()%>/videogames/<%= videogame.id() %>" class="btn btn-primary">Add Comment</a>
+      </div>
+    </div>
+
     <% end %>
     </ul>
 

@@ -1,8 +1,21 @@
-<form action="/add_videogame/<%=@profile.id()%>" method="post">
-  <label for="game_name">Enter in The name of the videogame</label>
-  <input type="text" name="game_name">
-  <button type="submit">Add game to database</button>
-</form>
+
 
 
 <a href="/profile/<%= @profile.id()%>">Back to your profile</a>
+
+<div class="site-wrapper login">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+        <h1 class="create">login.</h1>
+          <div class="row">
+            <form action="/add_videogame/<%=@profile.id()%>" method="post">
+              <label for="game_name">Enter in The name of the videogame</label>
+              <input type="text" name="game_name">
+              <button type="submit">Add game to database</button>
+            </form>
+      </div>
+      <a href="/profile/<%= @profile.id()%>">Back to your profile</a>
+    </div>
+  </div>
+</div>
