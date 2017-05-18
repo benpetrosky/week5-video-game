@@ -9,15 +9,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Follow</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -51,18 +42,17 @@
       </nav>
 
 
-<div class="container">
+
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link active" href="#"><form action="/add_friend" method="post">
+                <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
+                <input type="hidden" name="user_id" value="<%= @user_id.id()%>">
+
+                <button type="submit">Follow User</button>
+              </form> <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </nav>
@@ -71,26 +61,22 @@
 
       <div class="jumbotron" id="profiletron">
         <h1 class="display-3"><%= @profile.username() %></h1>
-        <p class="lead">write a description for yourself!
+        <p class="lead">
         <p><img id="profileImage" src="https://yt3.ggpht.com/-lx6v0vU1KkE/AAAAAAAAAAI/AAAAAAAAAAA/9T7kweNLWQg/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="avatar image" /></p>
       </div>
+<div class="container">
 
       <div class="row marketing">
         <div class="col-lg-10">
           <h4>Recent Activity</h4>
-          <form action="/add_friend" method="post">
-            <input type="hidden" name="profile_id" value="<%=@profile.id()%>">
-            <input type="hidden" name="user_id" value="<%= @user_id.id()%>">
 
-            <button type="submit">Follow User</button>
-          </form>
 
           <ul>
             <% @profile.opinions.each() do |opinion| %>
 
 
             <br>
-            <div class="card">
+            <div class="card posts">
               <h3 class="card-header"><%=Videogame.find(opinion.videogame_id().to_i).game_name()%></h3>
               <div class="card-block">
                 <p class="card-text">"<%=opinion.post%>"</p>
@@ -103,4 +89,5 @@
 
         </div>
       </div>
-    </div> <!-- /container -->
+
+    </div>
